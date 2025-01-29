@@ -1,5 +1,5 @@
 import { FC } from "react";
-import PhraseCard from "@/components/pharseCard";
+import SimpleCard from "@/components/atoms/simpleCard";
 import { Box, Typography } from "@mui/material";
 
 
@@ -12,7 +12,7 @@ const PhraseList: FC<PhraseListProps> = ({ phrases, onDelete }) => {
   return (
     <Box display="flex" py={2} gap={2} flexWrap="wrap">
       {phrases.map((phrase, index) => (
-        <PhraseCard
+        <SimpleCard
           key={index}
           phrase={phrase}
           onDelete={() => onDelete(index)}

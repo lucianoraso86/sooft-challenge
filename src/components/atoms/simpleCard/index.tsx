@@ -8,7 +8,7 @@ interface PhraseCardProps {
   onDelete: () => void;
 }
 
-const PhraseCard: FC<PhraseCardProps> = ({ phrase, onDelete }) => {
+const SimpleCard: FC<PhraseCardProps> = ({ phrase, onDelete }) => {
   return (
     <Box sx={{ minWidth: 275 }}>
       <Card variant="outlined" className={styles.card}>
@@ -26,4 +26,4 @@ const PhraseCard: FC<PhraseCardProps> = ({ phrase, onDelete }) => {
   );
 };
 
-export default PhraseCard;
+export default SimpleCard;

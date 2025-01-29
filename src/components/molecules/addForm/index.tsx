@@ -1,11 +1,11 @@
 import { Box, Button, TextField } from "@mui/material";
 import { FC, FormEvent, useState } from "react";
 
-interface AddPhraseFormProps {
+interface AddFormProps {
   onAddPhrase: (phrase: string) => void;
 }
 
-const AddPhraseForm: FC<AddPhraseFormProps> = ({ onAddPhrase }) => {
+const AddForm: FC<AddFormProps> = ({ onAddPhrase }) => {
   const [phrase, setPhrase] = useState<string>("");
 
   const handleSubmit = (e: FormEvent) => {
@@ -38,4 +38,4 @@ const AddPhraseForm: FC<AddPhraseFormProps> = ({ onAddPhrase }) => {
   );
 };
 
-export default AddPhraseForm;
+export default AddForm;

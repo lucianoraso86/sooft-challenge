@@ -1,0 +1,35 @@
+.alert {
+  position: fixed;
+  top: 1rem;
+  right: 1.5rem;
+  width: 100%;
+  max-width: 400px;
+  color: #fff !important;
+  font-size: 1rem !important;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  z-index: 9999;
+  box-sizing: border-box;
+
+
+  &.error {
+    background-color: rgba(255, 20, 20, 0.9) !important;
+  }
+
+  &.success {
+    background-color: rgba(50, 255, 50, 0.9) !important;
+  }
+  
+  & path {
+    fill: #fff;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .alert {
+    left: 1rem;
+    right: 1rem;
+    width: auto;
+  }
+}
