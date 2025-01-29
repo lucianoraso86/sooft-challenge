@@ -2,6 +2,8 @@
 
 import { AlertProvider } from "@/hooks/alertProvider/alertContext";
 import AlertPopup from "@/components/molecules/alert/alertPopup";
+import { Provider } from "react-redux";
+import  store  from "@/redux/store";
 import "./globals.css";
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
@@ -9,10 +11,12 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     <html lang="en">
       <title>Sooft Challenge</title>
       <body>
-        <AlertProvider>
-          <AlertPopup />
-          {children}
-        </AlertProvider>
+        <Provider store={store}>
+          <AlertProvider>
+            <AlertPopup />
+            {children}
+          </AlertProvider>
+        </Provider>
       </body>
     </html>
   );
