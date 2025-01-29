@@ -1,0 +1,11 @@
+.card {
+  position: relative;
+  padding-right: 2rem;
+  background-color: #fafafa;
+}
+
+.cardActions {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
