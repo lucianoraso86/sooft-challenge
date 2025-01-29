@@ -1,16 +1,19 @@
-import type { Metadata } from "next";
-import "./globals.css";
-import AlertPopup from "@/components/molecules/alert/alertPopup";
+"use client";
 
-export const metadata: Metadata = {
-  title: "Sooft Challenge",
-  description: "Sooft Challenge",
-};
+import "./globals.css";
+import { AlertProvider } from "@/hooks/alertProvider/alertContext";
+import AlertPopup from "@/components/molecules/alert/alertPopup";
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <title>Sooft Challenge</title>
+      <body>
+        <AlertProvider>
+          <AlertPopup />
+          {children}
+        </AlertProvider>
+      </body>
     </html>
   );
 }

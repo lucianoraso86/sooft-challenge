@@ -3,12 +3,12 @@ import { Box, Card, CardActions, CardContent, IconButton, Typography } from "@mu
 import DeleteIcon from "@mui/icons-material/Delete";
 import styles from './styled.module.css';
 
-interface PhraseCardProps {
+interface SimpleCardProps {
   phrase: string;
   onDelete: () => void;
 }
 
-const SimpleCard: FC<PhraseCardProps> = ({ phrase, onDelete }) => {
+const SimpleCard: FC<SimpleCardProps> = ({ phrase, onDelete }) => {
   return (
     <Box sx={{ minWidth: 275 }}>
       <Card variant="outlined" className={styles.card}>

@@ -1,4 +1,4 @@
-// AuthContext.js
+import { ReactNode } from "react";
 import { createContext, useState } from "react";
 
 const ALERT_TIME = 10000;
@@ -13,11 +13,10 @@ const AlertContext = createContext({
   setAlert: (text: string, type: string) => {},
 });
 
-import { ReactNode } from "react";
 
 export const AlertProvider = ({ children }: { children: ReactNode }) => {
-  const [text, setText] = useState("");
-  const [type, setType] = useState("");
+  const [text, setText] = useState<string>("");
+  const [type, setType] = useState<string>("");
 
   const setAlert = (text: string, type: string) => {
     setText(text);
