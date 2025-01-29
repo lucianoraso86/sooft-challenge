@@ -1,3 +1,5 @@
+"use client";
+
 import { useState } from "react";
 import { Box, Container, Typography } from "@mui/material";
 import SearchBar from "@/components/atoms/searchBar";

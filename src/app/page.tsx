@@ -1,9 +1,7 @@
-"use client";
-
-import Home from "@/components/pages/home";
+import { permanentRedirect } from "next/navigation";
 
 const Page = () => {
-  return <Home />;
+  permanentRedirect('/home')
 };
 
 export default Page;
