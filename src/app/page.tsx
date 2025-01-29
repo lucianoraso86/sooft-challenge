@@ -10,8 +10,9 @@ const Home = () => {
   const [phrases, setPhrases] = useState<string[]>([]);
   const [search, setSearch] = useState<string>("");
 
-  const handleAddPhrase = (phrase: string) => {
-    setPhrases([...phrases, phrase]);
+  const handleAddPhrase = (newItem: string) => {
+    const exists = phrases.find((item) => item.toLowerCase().includes(newItem.toLowerCase()));
+    if (!exists) setPhrases([...phrases, newItem]);
   };
 
   const handleDeletePhrase = (index: number) => {

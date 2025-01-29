@@ -6,7 +6,7 @@ interface AddPhraseFormProps {
 }
 
 const AddPhraseForm: FC<AddPhraseFormProps> = ({ onAddPhrase }) => {
-  const [phrase, setPhrase] = useState("");
+  const [phrase, setPhrase] = useState<string>("");
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
