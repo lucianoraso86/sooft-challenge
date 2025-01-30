@@ -1,11 +1,13 @@
+import { FormEvent, useEffect, useRef, useState } from "react";
 import { Box, Button, TextField } from "@mui/material";
-import { FC, FormEvent, useState } from "react";
 
 interface AddFormProps {
   onAddPhrase: (phrase: string) => void;
+  setFocus?: boolean;
 }
 
-const AddForm: FC<AddFormProps> = ({ onAddPhrase }) => {
+const AddForm = ({ onAddPhrase, setFocus = false }: AddFormProps) => {
+  const inputRef = useRef<HTMLInputElement>(null);
   const [phrase, setPhrase] = useState<string>("");
 
   const handleSubmit = (e: FormEvent) => {
@@ -16,18 +18,22 @@ const AddForm: FC<AddFormProps> = ({ onAddPhrase }) => {
     }
   };
 
+  useEffect(() => {
+    if (setFocus) inputRef.current?.focus();
+  }, [setFocus]);
+
   return (
-    <form noValidate autoComplete="off" onSubmit={handleSubmit}>
-      <Box display="flex" alignItems="center" gap={2} py={2}>
+    <form noValidate autoComplete="off" onSubmit={handleSubmit} style={{ width: "100%" }}>
+      <Box display="flex" flexDirection={"column"} alignItems="flex-end" gap={2} py={2}>
         <TextField
+          inputRef={inputRef}
           id="phrase"
-          label="Agregar frase"
-          variant="outlined"
-          onChange={(e) => setPhrase(e.target.value)}
           value={phrase}
+          onChange={(e) => setPhrase(e.target.value)}
+          label="Ingrese una frase"
           placeholder="Nueva frase"
-          size="small"
-          fullWidth 
+          variant="outlined"
+          fullWidth
         />
 
         <Button variant="contained" type="submit">

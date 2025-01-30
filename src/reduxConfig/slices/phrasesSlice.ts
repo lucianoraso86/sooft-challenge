@@ -1,7 +1,13 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import uuid from "react-uuid";
+
+interface Phrase {
+  id: string;
+  text: string;
+}
 
 interface PhrasesState {
-  data: string[];
+  data: Phrase[];
 }
 
 const initialState: PhrasesState = {
@@ -13,11 +19,13 @@ const phrasesSlice = createSlice({
   initialState,
   reducers: {
     addPhrase: (state, action: PayloadAction<string>) => {
-      state.data.push(action.payload);
+      state.data.push({
+        id: uuid(),
+        text: action.payload,
+      });
     },
-    deletePhrase: (state, action: PayloadAction<number>) => {
-      state.data = state.data.filter((item, pos) => pos !== action.payload)
-      //state.phrases.splice(action.payload, 1);
+    deletePhrase: (state, action: PayloadAction<string>) => {
+      state.data = state.data.filter((item) => item.id !== action.payload);
     },
   },
 });

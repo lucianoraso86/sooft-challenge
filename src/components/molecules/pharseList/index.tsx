@@ -1,29 +1,24 @@
-import { FC } from "react";
-import SimpleCard from "@/components/atoms/simpleCard";
 import { Box, Typography } from "@mui/material";
+import SimpleCard from "@/components/atoms/simpleCard";
 
-
-interface PhraseListProps {
-  phrases: string[];
-  onDelete: (index: number) => void;
+interface Phrase {
+  id: string;
+  text: string;
 }
 
-const PhraseList: FC<PhraseListProps> = ({ phrases, onDelete }) => {
+interface PhraseListProps {
+  phrases: Phrase[];
+  onDelete: (index: string) => void;
+}
+
+const PhraseList = ({ phrases, onDelete }: PhraseListProps) => {
   return (
     <Box display="flex" py={2} gap={2} flexWrap="wrap">
-      {phrases.map((phrase, index) => (
-        <SimpleCard
-          key={index}
-          phrase={phrase}
-          onDelete={() => onDelete(index)}
-        />
+      {phrases.map((item, pos) => (
+        <SimpleCard key={pos} text={item.text} onDelete={() => onDelete(item.id)} />
       ))}
 
-      {phrases.length === 0 && ( 
-        <Typography p={2}>
-          No se encontraron frases
-        </Typography>
-      )}
+      {phrases.length === 0 && <Typography p={2}>No se encontraron frases</Typography>}
     </Box>
   );
 };

@@ -1,19 +1,19 @@
-import { FC } from "react";
 import { Box, Card, CardActions, CardContent, IconButton, Typography } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
-import styles from './styled.module.css';
+
+import styles from "./styled.module.scss";
 
 interface SimpleCardProps {
-  phrase: string;
+  text: string;
   onDelete: () => void;
 }
 
-const SimpleCard: FC<SimpleCardProps> = ({ phrase, onDelete }) => {
+const SimpleCard = ({ text, onDelete }: SimpleCardProps) => {
   return (
     <Box sx={{ minWidth: 275 }}>
       <Card variant="outlined" className={styles.card}>
         <CardContent>
-          <Typography variant="h6">{phrase}</Typography>
+          <Typography variant="h6">{text}</Typography>
         </CardContent>
 
         <CardActions className={styles.cardActions}>

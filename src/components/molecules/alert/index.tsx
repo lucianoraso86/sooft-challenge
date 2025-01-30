@@ -1,5 +1,5 @@
-import { FC, useEffect } from "react";
 import { Grow, Alert as MaterialAlert } from "@mui/material";
+
 import styled from "./styled.module.scss";
 
 interface AlertProps {
@@ -8,12 +8,8 @@ interface AlertProps {
   severity: "error" | "warning" | "info" | "success";
 }
 
-const Alert: FC<AlertProps> = ({ children, onClose, severity = "error" }) => {
+const Alert = ({ children, onClose, severity = "error" }: AlertProps) => {
   const style = `${styled.alert} ${styled[severity]}`;
-
-  useEffect(() => {
-    if (children) setTimeout(() => onClose(), 5000);
-  }, [children, onClose]);
 
   return (
     <Grow in={true}>

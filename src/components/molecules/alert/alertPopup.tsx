@@ -1,5 +1,6 @@
 import { Alert, Typography } from "@mui/material";
 import useAlert from "@/hooks/alertProvider/useAlert";
+
 import styled from "./styled.module.scss";
 
 const AlertPopup = () => {

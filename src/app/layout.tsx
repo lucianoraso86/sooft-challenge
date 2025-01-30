@@ -1,9 +1,10 @@
 "use client";
 
 import { AlertProvider } from "@/hooks/alertProvider/alertContext";
-import AlertPopup from "@/components/molecules/alert/alertPopup";
 import { Provider } from "react-redux";
-import  store  from "@/redux/store";
+import AlertPopup from "@/components/molecules/alert/alertPopup";
+import store from "@/reduxConfig/store";
+
 import "./globals.css";
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {

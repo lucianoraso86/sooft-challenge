@@ -1,52 +1,48 @@
 "use client";
 
 import { useState } from "react";
-import { Box, Container, Typography } from "@mui/material";
-import SearchBar from "@/components/atoms/searchBar";
-import AddForm from "@/components/molecules/addForm";
-import PhraseList from "@/components/molecules/pharseList";
-import useAlert from "@/hooks/alertProvider/useAlert";
+import { Box, Button, Container, Typography } from "@mui/material";
+
 import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "@/redux/store";
-import { addPhrase, deletePhrase } from "@/redux/slices/phrasesSlice";
+import { RootState } from "@/reduxConfig/store";
+import { deletePhrase } from "@/reduxConfig/slices/phrasesSlice";
+
+import SearchBar from "@/components/atoms/searchBar";
+import PhraseList from "@/components/molecules/pharseList";
+import AddModal from "@/components/organisms/addModal";
 
 const Home = () => {
   const dispatch = useDispatch();
-  const { setAlert } = useAlert();
-  //const [phrases, setPhrases] = useState<string[]>([]);
-  const phrases = useSelector((state: RootState) => state.phrases.data);
+
+  const [openModal, setOpenModal] = useState<boolean>(false);
   const [search, setSearch] = useState<string>("");
 
-  const handleAddPhrase = (newItem: string) => {
-    const exists = phrases.find((item) => item.toLowerCase().includes(newItem.toLowerCase()));
-    if (!exists) {
-     // setPhrases([...phrases, newItem])
-      dispatch(addPhrase(newItem));
-    } else {
-      console.log("La frase ya existe");
-      setAlert("La frase ya existe", "error");
-    }
+  const phrases = useSelector((state: RootState) => state.phrases.data);
 
-  };
+  const handleOpenModal = () => setOpenModal(true);
+  const handleCloseModal = () => setOpenModal(false);
+  const handleDeletePhrase = (id: string) => dispatch(deletePhrase(id));
 
-  const handleDeletePhrase = (index: number) => {
-    dispatch(deletePhrase(index));
-    //setPhrases(phrases.filter((item, pos) => pos !== index));
-  };
-
-  const filteredPhrases = phrases.filter((item) => item.toLowerCase().includes(search.toLowerCase()));
+  const filteredPhrases = phrases.filter((item) => item.text.toLowerCase().includes(search.toLowerCase()));
 
   return (
     <Container>
-      <Typography py={2} variant="h4">
+      <Typography py={4} variant="h4">
         Sooft Challenge - Frases
       </Typography>
       <Box>
-        <AddForm onAddPhrase={handleAddPhrase} />
-        <SearchBar onSearch={setSearch} />
+        <Box display={"flex"} gap={2}>
+          <SearchBar onSearch={setSearch} setFocus={!openModal} />
+          <Button variant="contained" style={{ minWidth: "150px" }} onClick={handleOpenModal}>
+            Nueva Frase
+          </Button>
+        </Box>
+
+        <AddModal open={openModal} onClose={handleCloseModal} />
+
         <PhraseList phrases={filteredPhrases} onDelete={handleDeletePhrase} />
       </Box>
     </Container>
   );
-}
-export default Home
+};
+export default Home;

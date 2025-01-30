@@ -1,0 +1,33 @@
+.modalContainer {
+  z-index: 900;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  position: relative;
+  background-color: #ffffffcc;
+  padding: 1.5rem;
+
+  .modal {
+    position: relative;
+    height: fit-content;
+    padding: 1.5rem;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--background);
+    color: var(--color);
+    border-radius: 0.5rem;
+    width: 100%;
+    max-width: 900px;
+    border: none;
+
+    .close {
+      position: absolute;
+      top: 0;
+      right: 0;
+      padding: 1rem;
+      cursor: pointer;
+      z-index: 1000;
+    }
+  }
+}
