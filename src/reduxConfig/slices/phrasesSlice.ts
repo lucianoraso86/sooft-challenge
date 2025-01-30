@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import uuid from "react-uuid";
+import { v4 as uuidv4 } from 'uuid';
 
 interface Phrase {
   id: string;
@@ -20,7 +20,7 @@ const phrasesSlice = createSlice({
   reducers: {
     addPhrase: (state, action: PayloadAction<string>) => {
       state.data.push({
-        id: uuid(),
+        id: uuidv4(),
         text: action.payload,
       });
     },
