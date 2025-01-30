@@ -1,4 +1,4 @@
-import { FormEvent, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, FormEvent, ChangeEvent } from "react";
 import { Box, Button, TextField } from "@mui/material";
 
 interface AddFormProps {
@@ -9,13 +9,21 @@ interface AddFormProps {
 const AddForm = ({ onAddPhrase, setFocus = false }: AddFormProps) => {
   const inputRef = useRef<HTMLInputElement>(null);
   const [phrase, setPhrase] = useState<string>("");
+  const [onError, setOnError] = useState<boolean>(false);
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     if (phrase.trim()) {
       onAddPhrase(phrase);
       setPhrase("");
+    } else {
+      setOnError(true);
     }
+  };
+
+  const handleOnChange = (e: ChangeEvent<HTMLInputElement>) => {
+    if (onError) setOnError(false);
+    setPhrase(e.target.value);
   };
 
   useEffect(() => {
@@ -24,16 +32,18 @@ const AddForm = ({ onAddPhrase, setFocus = false }: AddFormProps) => {
 
   return (
     <form noValidate autoComplete="off" onSubmit={handleSubmit} style={{ width: "100%" }}>
-      <Box display="flex" flexDirection={"column"} alignItems="flex-end" gap={2} py={2}>
+      <Box display="flex" flexDirection={"column"} alignItems="flex-end" gap={3} pt={2}>
         <TextField
           inputRef={inputRef}
           id="phrase"
           value={phrase}
-          onChange={(e) => setPhrase(e.target.value)}
+          onChange={handleOnChange}
           label="Ingrese una frase"
           placeholder="Nueva frase"
           variant="outlined"
           fullWidth
+          error={onError}
+          helperText={onError ? "La frase no puede estar vacía" : ""}
         />
 
         <Button variant="contained" type="submit">

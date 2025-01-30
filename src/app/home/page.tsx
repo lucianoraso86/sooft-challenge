@@ -31,7 +31,7 @@ const Home = () => {
         Sooft Challenge - Frases
       </Typography>
       <Box>
-        <Box display={"flex"} gap={2}>
+        <Box display={"flex"} gap={3} pb={2}>
           <SearchBar onSearch={setSearch} setFocus={!openModal} />
           <Button variant="contained" style={{ minWidth: "150px" }} onClick={handleOpenModal}>
             Nueva Frase

@@ -36,7 +36,7 @@ const AddModal = ({ open, onClose }: AddModalProps) => {
   return (
     <Modal open={open} className={styled.modalContainer}>
       <Box className={styled.modal}>
-        <Typography variant="h5">Agregar frase</Typography>
+        <Typography variant="h5" py={2}>Agregar frase</Typography>
 
         <Box className={styled.close}>
           <IconButton aria-label="close" onClick={onClose}>
