@@ -1,5 +1,7 @@
 import { Box, Typography } from "@mui/material";
 import SimpleCard from "@/components/atoms/simpleCard";
+import { useDispatch } from "react-redux";
+import { deletePhrase } from "@/reduxConfig/slices/phrasesSlice";
 
 interface Phrase {
   id: string;
@@ -8,14 +10,16 @@ interface Phrase {
 
 interface PhraseListProps {
   phrases: Phrase[];
-  onDelete: (index: string) => void;
 }
 
-const PhraseList = ({ phrases, onDelete }: PhraseListProps) => {
+const PhraseList = ({ phrases }: PhraseListProps) => {
+  const dispatch = useDispatch();
+  const handleDelete = (id: string) => dispatch(deletePhrase(id));
+
   return (
     <Box display="flex" py={2} gap={2} flexWrap="wrap">
       {phrases.map((item, pos) => (
-        <SimpleCard key={pos} text={item.text} onDelete={() => onDelete(item.id)} />
+        <SimpleCard key={pos} text={item.text} onDelete={() => handleDelete(item.id)} />
       ))}
 
       {phrases.length === 0 && <Typography p={2}>No se encontraron frases</Typography>}
