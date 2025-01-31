@@ -10,7 +10,9 @@ import "./globals.css";
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <title>Sooft Challenge</title>
+      <head>
+        <title>Sooft Challenge</title>
+      </head>
       <body>
         <Provider store={store}>
           <AlertProvider>
