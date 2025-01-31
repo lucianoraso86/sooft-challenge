@@ -25,6 +25,6 @@ Para desarrollar el challenge, se utilizó:
 - Next.js 
 - TypeScript
 - Material UI
-- SASS
+- SCSS
 - Redux
 
