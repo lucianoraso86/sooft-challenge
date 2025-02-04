@@ -19,7 +19,7 @@ npm run dev
 
 ## Test
 
-Para la ejecution de los test, ejecute el siguiente comando:
+Para correr los test, ejecute el siguiente comando:
 
 ```bash
 # ejecutar test
