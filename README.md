@@ -17,6 +17,14 @@ npm i
 npm run dev
 ```
 
+## Test
+
+Para la ejecution de los test, ejecute el siguiente comando:
+
+```bash
+# ejecutar test
+npm test
+```
 
 ## Tecnologías y herramientas utilizadas
 
@@ -27,4 +35,6 @@ Para desarrollar el challenge, se utilizó:
 - Material UI
 - SCSS
 - Redux
+- jest 
+
 
