@@ -5,7 +5,8 @@ describe("AddForm", () => {
   const testText = "Nueva frase";
 
   it("should render the AddForm", () => {
-    render(<AddForm onAddPhrase={jest.fn()} />);
+    const onAddPhrase = jest.fn();
+    render(<AddForm onAddPhrase={onAddPhrase} />);
     expect(screen.getByLabelText(/Ingrese una frase/i)).toBeInTheDocument();
     expect(screen.getByRole("button", { name: /Agregar/i })).toBeInTheDocument();
   });

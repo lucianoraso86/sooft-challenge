@@ -4,8 +4,9 @@ import SearchBar from "./index";
 describe("SearchBar", () => {
   const testText = "Nueva frase";
 
-  it("should render the search bar", () => {
-    render(<SearchBar onSearch={jest.fn()} />);
+  it("should render the SearchBar", () => {
+    const onSearch = jest.fn();
+    render(<SearchBar onSearch={onSearch} />);
     expect(screen.getByLabelText(/Buscar frase/i)).toBeInTheDocument();
   });
 

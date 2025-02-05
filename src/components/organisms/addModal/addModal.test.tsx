@@ -12,7 +12,8 @@ describe("AddModal", () => {
   };
 
   it("should render the AddModal", () => {
-    renderWithProvider(<AddModal open={true} onClose={jest.fn()} />);
+    const onClose = jest.fn();
+    renderWithProvider(<AddModal open={true} onClose={onClose} />);
     expect(screen.getByText(/Agregar frase/i)).toBeInTheDocument();
     expect(screen.getByLabelText(/Ingrese una frase/i)).toBeInTheDocument();
     expect(screen.getByRole("button", { name: /Agregar/i })).toBeInTheDocument();

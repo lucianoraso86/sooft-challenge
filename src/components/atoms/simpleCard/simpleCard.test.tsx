@@ -5,7 +5,8 @@ describe("SimpleCard", () => {
   const testText = "Nueva frase";
 
   it("should render the SimpleCard with text", () => {
-    render(<SimpleCard text={testText} onDelete={jest.fn()} />);
+    const onDelete = jest.fn();
+    render(<SimpleCard text={testText} onDelete={onDelete} />);
     expect(screen.getByText(testText)).toBeInTheDocument();
   });
 
