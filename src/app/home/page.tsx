@@ -6,9 +6,9 @@ import { Box, Button, Container, Typography } from "@mui/material";
 import { useSelector } from "react-redux";
 import { RootState } from "@/reduxConfig/store";
 
-import SearchBar from "@/components/atoms/searchBar";
-import PhraseList from "@/components/molecules/pharseList";
-import AddModal from "@/components/organisms/addModal";
+import SearchBar from "@/components/searchBar";
+import PhraseList from "@/components/phraseList";
+import AddModal from "@/components/addModal";
 
 const Home = () => {
   const [openModal, setOpenModal] = useState<boolean>(false);

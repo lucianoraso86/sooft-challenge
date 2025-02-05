@@ -1,6 +1,6 @@
 import { Grow, Alert as MaterialAlert } from "@mui/material";
 
-import styled from "./styled.module.scss";
+import styled from "./alertPopup.module.scss";
 
 interface AlertProps {
   children: string;

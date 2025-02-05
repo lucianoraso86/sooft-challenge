@@ -5,10 +5,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { addPhrase } from "@/reduxConfig/slices/phrasesSlice";
 import { RootState } from "@/reduxConfig/store";
 
-import AddForm from "@/components/molecules/addForm";
+import AddForm from "@/components/addForm";
 import useAlert from "@/hooks/alertProvider/useAlert";
 
-import styled from "./styled.module.scss";
+import styled from "./addModal.module.scss";
 
 interface AddModalProps {
   open: boolean;

@@ -2,7 +2,7 @@
 
 import { AlertProvider } from "@/hooks/alertProvider/alertContext";
 import { Provider } from "react-redux";
-import AlertPopup from "@/components/molecules/alert/alertPopup";
+import AlertPopup from "@/components/alert/alertPopup";
 import store from "@/reduxConfig/store";
 
 import "./globals.css";

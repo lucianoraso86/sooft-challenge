@@ -1,14 +1,14 @@
 import { Box, Card, CardActions, CardContent, IconButton, Typography } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
 
-import styles from "./styled.module.scss";
+import styles from "./phraseCard.module.scss";
 
-interface SimpleCardProps {
+interface PhaseCardProps {
   text: string;
   onDelete: () => void;
 }
 
-const SimpleCard = ({ text, onDelete }: SimpleCardProps) => {
+const PhraseCard = ({ text, onDelete }: PhaseCardProps) => {
   return (
     <Box sx={{ minWidth: 275 }}>
       <Card variant="outlined" className={styles.card}>
@@ -26,4 +26,4 @@ const SimpleCard = ({ text, onDelete }: SimpleCardProps) => {
   );
 };
 
-export default SimpleCard;
+export default PhraseCard;

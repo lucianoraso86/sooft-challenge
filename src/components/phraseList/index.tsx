@@ -1,5 +1,5 @@
 import { Box, Typography } from "@mui/material";
-import SimpleCard from "@/components/atoms/simpleCard";
+import PhraseCard from "@/components/phraseCard";
 import { useDispatch } from "react-redux";
 import { deletePhrase } from "@/reduxConfig/slices/phrasesSlice";
 
@@ -19,7 +19,7 @@ const PhraseList = ({ phrases }: PhraseListProps) => {
   return (
     <Box display="flex" py={2} gap={2} flexWrap="wrap">
       {phrases.map((item, pos) => (
-        <SimpleCard key={pos} text={item.text} onDelete={() => handleDelete(item.id)} />
+        <PhraseCard key={pos} text={item.text} onDelete={() => handleDelete(item.id)} />
       ))}
 
       {phrases.length === 0 && <Typography p={2}>No se encontraron frases</Typography>}
