@@ -6,22 +6,23 @@ import AddModal from "./index";
 
 describe("AddModal", () => {
   const testText = "Nueva frase";
+  const onClose = jest.fn();
 
-  const renderWithProvider = (ui: React.ReactElement) => {
-    return render(<Provider store={store}>{ui}</Provider>);
+  const renderWithProvider = (children: React.ReactElement) => {
+    return render(<Provider store={store}>{children}</Provider>);
   };
 
-  it("should render the AddModal", () => {
-    const onClose = jest.fn();
+  beforeEach(() => {
     renderWithProvider(<AddModal open={true} onClose={onClose} />);
+  });
+
+  it("should render the AddModal", () => {
     expect(screen.getByText(/Agregar frase/i)).toBeInTheDocument();
     expect(screen.getByLabelText(/Ingrese una frase/i)).toBeInTheDocument();
     expect(screen.getByRole("button", { name: /Agregar/i })).toBeInTheDocument();
   });
 
   it("should call handleAddPhrase with the input value when the button is clicked", () => {
-    const onClose = jest.fn();
-    renderWithProvider(<AddModal open={true} onClose={onClose} />);
     const input = screen.getByLabelText(/Ingrese una frase/i);
     const button = screen.getByRole("button", { name: /Agregar/i });
 

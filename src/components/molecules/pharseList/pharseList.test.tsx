@@ -10,8 +10,8 @@ describe("PhraseList", () => {
     { id: "3", text: "Frase test 3" },
   ];
 
-  const renderWithProvider = (ui: React.ReactElement) => {
-    return render(<Provider store={store}>{ui}</Provider>);
+  const renderWithProvider = (children: React.ReactElement) => {
+    return render(<Provider store={store}>{children}</Provider>);
   };
 
   it("should render the PhraseList with phrases", () => {
